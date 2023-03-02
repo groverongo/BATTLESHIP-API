@@ -1,0 +1,11 @@
+{
+  "name": "API",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/groverongo/BATTLESHIP-API.git",
+  "author": "groverongo",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
