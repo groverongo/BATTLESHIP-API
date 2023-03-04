@@ -24,6 +24,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 // Send username and password and veify it with the MongoDB database
 app.post('/api/login', upload.array(), (req, res) => {
+  console.log("POST: /api/login")
 
   // Find the user with the username as _id
   User.findById(req.body.username).exec().then(user => {
@@ -42,6 +43,7 @@ app.post('/api/login', upload.array(), (req, res) => {
 
 // It's the same as a register, is creates a new account with a random board
 app.post('/api/boards', upload.array(), (req, res) => {
+  console.log("POST: /api/boards")
 
   // Create User model instance with the info sent in the request body
   const newUser = new User({
@@ -68,6 +70,7 @@ function obtainJWTToken(req) {
 
 // It updates the board of the current user, AUTHENTICATION required
 app.put('/api/boards', upload.array(), (req, res) => {
+  console.log("PUT: /api/boards")
   // Obtain the token
   const token = obtainJWTToken(req);
 
@@ -87,6 +90,8 @@ app.put('/api/boards', upload.array(), (req, res) => {
 
 // Obtain your board
 app.get('/api/boards', (req, res) => {
+  console.log("GET: /api/boards")
+
   // Obtain token from headers
   const token = obtainJWTToken(req)
 
